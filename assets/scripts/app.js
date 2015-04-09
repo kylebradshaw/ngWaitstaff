@@ -14,22 +14,18 @@
             };
 
             $scope.datum = {};
-
-            angular.copy($scope.master, $scope.datum)
+            angular.copy($scope.master, $scope.datum);
 
             $scope.submit = function() {
                 if($scope.wsForm.$valid) {
                     $scope.datum.mealCount += 1;
 
-                    $scope.subtotal = $scope.bmp;
-                    $scope.tip = $scope.bmp * ($scope.tp / 100);
-                    $scope.datum.tipTotal += $scope.tip;
+                    $scope.datum.subtotal = $scope.bmp;
+                    $scope.datum.tip = $scope.bmp * ($scope.tp / 100);
+                    $scope.datum.tipTotal += $scope.datum.tip;
 
-                    $scope.total = ( $scope.bmp * ($scope.tr / 100) ) + $scope.bmp + $scope.tip;
-
-                    $scope.mealCount = $scope.datum.mealCount;
-                    $scope.tipTotal = $scope.datum.tipTotal;
-                    $scope.avgTip = $scope.datum.tipTotal / $scope.datum.mealCount;
+                    $scope.datum.total = ( $scope.bmp * ($scope.tr / 100) ) + $scope.bmp + $scope.datum.tip;
+                    $scope.datum.avgTip = $scope.datum.tipTotal / $scope.datum.mealCount;
                 }
             };
 
@@ -43,11 +39,8 @@
 
             //copy is not working ?
             $scope.reset = function() {
-                $scope.datum = $scope.master;
+                angular.copy($scope.master, $scope.datum);
                 $scope.cancel();
-                $scope.submit();
-                $scope.subtotal = 0;
-                $scope.mealCount = 0;
             }
 
         });

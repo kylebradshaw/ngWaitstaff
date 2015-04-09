@@ -63,15 +63,15 @@
                                 <table class="table">
                                     <tr>
                                         <th>Subtotal</th>
-                                        <td>{{subtotal | currency}}</td>
+                                        <td>{{datum.subtotal | currency}}</td>
                                     </tr>
                                     <tr>
                                         <th>Tip</th>
-                                        <td>{{tip | currency}}</td>
+                                        <td>{{datum.tip | currency}}</td>
                                     </tr>
                                     <tr>
                                         <th>Total</th>
-                                        <td>{{total | currency}}</td>
+                                        <td>{{datum.total | currency}}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -86,15 +86,15 @@
                                 <table class="table">
                                     <tr>
                                         <th>Tip Total</th>
-                                        <td>{{tipTotal | currency}}</td>
+                                        <td>{{datum.tipTotal | currency}}</td>
                                     </tr>
                                     <tr>
                                         <th>Meal Count</th>
-                                        <td>{{mealCount}}</td>
+                                        <td>{{datum.mealCount}}</td>
                                     </tr>
                                     <tr>
                                         <th>Average Tip Per Meal</th>
-                                        <td>{{avgTip | currency}}</td>
+                                        <td>{{datum.avgTip | currency}}</td>
                                     </tr>
                                 </table>
                             </div>
