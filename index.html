@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="waitstaff">
+
 <head>
     <meta charset="UTF-8">
-    <title>Waitstaff</title
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+    <title>Waitstaff</title <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/main.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Waitstaff Calculator</h1>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <ul class="nav nav-pills nav-justified">
-                  <li><a href="#/">Home</a></li>
-                  <li><a href="#/new-meal">New Meal</a></li>
-                  <li><a href="#/my-earnings">My Earnings</a></li>
+                    <li ng-class="{active: route.current.loadedTemplateUrl == 'templates/home.html'}"><a href="#/">Home</a></li>
+                    <li ng-class="{active: route.current.loadedTemplateUrl == 'templates/new-meal.html'}"><a href="#/new-meal">New Meal</a></li>
+                    <li ng-class="{active: route.current.loadedTemplateUrl== 'templates/my-earnings.html'}"><a href="#/my-earnings">My Earnings</a></li>
                 </ul>
             </div>
         </div>
@@ -26,4 +27,5 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js"></script>
     <script src="assets/scripts/app.js"></script>
 </body>
+
 </html>

@@ -6,32 +6,38 @@
         .config(['$routeProvider', function($routeProvider){
             $routeProvider.when('/', {
                 templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl'
+                controller: 'HomeCtrl',
+                active: 'home'
             })
             .when('/my-earnings', {
                 templateUrl: 'templates/my-earnings.html',
-                controller: 'EarningsCtrl'
+                controller: 'EarningsCtrl',
+                active: 'earnings'
             })
             .when('/new-meal', {
                 templateUrl: 'templates/new-meal.html',
-                controller: 'CalculatorCtrl'
+                controller: 'CalculatorCtrl',
+                active: 'calculator'
             })
             .otherwise({
                 redirectTo: '/'
             })
         }])
-        .controller('HomeCtrl', function($rootScope){
+        .controller('HomeCtrl', function($rootScope, $route){
+            $rootScope.route = $route;
         })
-        .controller('EarningsCtrl', function($scope, $rootScope){
+        .controller('EarningsCtrl', function($scope, $rootScope, $route){
+            $rootScope.route = $route;
             $scope.datum = $rootScope.datum;
 
             //copy is not working ?
-            $rootScope.reset = function() {
+            $scope.reset = function() {
                 angular.copy($rootScope.master, $rootScope.datum);
                 // $rootScope.cancel();
             }
         })
-        .controller('CalculatorCtrl', function($scope, $rootScope){
+        .controller('CalculatorCtrl', function($scope, $rootScope, $route){
+            $rootScope.route = $route;
 
             $rootScope.master = {
                 subtotal: 0,
@@ -45,7 +51,7 @@
             $rootScope.datum = {};
             angular.copy($rootScope.master, $rootScope.datum);
 
-            $rootScope.submit = function() {
+            $scope.submit = function() {
                 if($scope.wsForm.$valid) {
                     $scope.datum.mealCount += 1;
 
@@ -59,7 +65,7 @@
                 }
             };
 
-            $rootScope.cancel = function() {
+            $scope.cancel = function() {
                 $scope.bmp = null;
                 $scope.tp = null;
                 $scope.tr = null;
