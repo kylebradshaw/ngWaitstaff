@@ -22,6 +22,7 @@
 
                     $scope.datum.subtotal = $scope.bmp;
                     $scope.datum.tip = $scope.bmp * ($scope.tp / 100);
+                
                     $scope.datum.tipTotal += $scope.datum.tip;
 
                     $scope.datum.total = ( $scope.bmp * ($scope.tr / 100) ) + $scope.bmp + $scope.datum.tip;
