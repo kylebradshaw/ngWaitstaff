@@ -1,9 +1,38 @@
+body, html {
+  margin:0;
+  padding:0;
+  position:relative;
+  height:100%;
+  padding-top:10px;
+}
+.loading {
+  position:relative;
+  // height:100%;
+  min-height: 70vh;
+}
+.loading:before {
+  position:absolute;
+  content:"";
+  left:0;
+  bottom:0;
+  right:0;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.9) no-repeat center center;
+  // background-image: url('../images/loading.gif');
+  background-image: url('../images/kitty.gif');
+  background-size: cover;
+  border-radius: 5px;
+}
 .container {
     padding-bottom: 2em;
     position: relative;
 }
 h1 {
     text-align: center;
+    color: #0f0;
+    // text-shadow: 5px 5px 5px #fff;
+    // text-shadow: hsl(106,100%,60%) 1px 1px, hsl(106,100%,60%) 2px 2px, hsl(106,100%,60%) 3px 3px, hsl(106,100%,60%) 4px 4px, hsl(106,100%,60%) 5px 5px, hsl(106,100%,60%) 6px 6px, hsl(106,100%,60%) 7px 7px;
 }
 .panel-footer {
     text-align: center;
@@ -15,5 +44,22 @@ h1 {
 form.ng-submitted {
     input.ng-invalid {
         border: 1px solid #f00;
+    }
+}
+
+.btn.btn-primary {
+    background-color: #0f0;
+    border-color: #0f0;
+    color: #0a0a0a !important;
+    &:hover {
+        background-color: lighten(#0f0, 0.8);
+    }
+}
+.nav-pills>li.active>a {
+    background-color: #0f0;
+    color: #0a0a0a !important;
+    &:focus,
+    &:hover {
+        background-color: darken(#0f0, 0.8);
     }
 }
