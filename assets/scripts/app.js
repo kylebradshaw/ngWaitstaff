@@ -41,28 +41,15 @@
         })
         .controller('EarningsCtrl', function($scope, $rootScope, $route){
             $rootScope.route = $route;
-            $scope.datum = $rootScope.datum;
-
-            //copy is not working ?
             $scope.reset = function() {
                 angular.copy($rootScope.master, $rootScope.datum);
                 // $rootScope.cancel();
             }
+
         })
         .controller('CalculatorCtrl', function($scope, $rootScope, $route){
             $rootScope.route = $route;
-
-            $rootScope.master = {
-                subtotal: 0,
-                tip: 0,
-                total: 0,
-                tipTotal: 0,
-                mealCount: 0,
-                avgTip: 0
-            };
-
-            $rootScope.datum = {};
-            angular.copy($rootScope.master, $rootScope.datum);
+            console.log($scope.name);
 
             $scope.submit = function() {
                 if($scope.wsForm.$valid) {
@@ -85,6 +72,23 @@
                 $scope.wsForm.$setPristine();   
                 document.getElementById('bmp').focus();
             }
+
+        })
+        .controller('ParentCtrl', function($scope, $route, $rootScope){
+            $scope.name = "kyle";
+
+            $rootScope.master = {
+                subtotal: 0,
+                tip: 0,
+                total: 0,
+                tipTotal: 0,
+                mealCount: 0,
+                avgTip: 0
+            };
+
+            $rootScope.datum = {};
+
+            angular.copy($rootScope.master, $rootScope.datum);
 
         });
 
