@@ -17,7 +17,7 @@
             });
         })
         .config(['$routeProvider', function($routeProvider){
-            $routeProvider.when('/', {
+          Provider.when('/', {
                 templateUrl: 'templates/home.html',
                 controller: 'HomeCtrl',
                 active: 'home'
@@ -36,20 +36,16 @@
                 redirectTo: '/'
             })
         }])
-        .controller('HomeCtrl', function($rootScope, $route){
-            $rootScope.route = $route;
+        .controller('HomeCtrl', function($rootScope){
         })
-        .controller('EarningsCtrl', function($scope, $rootScope, $route){
-            $rootScope.route = $route;
+        .controller('EarningsCtrl', function($scope, $rootScope){
             $scope.reset = function() {
                 angular.copy($rootScope.master, $rootScope.datum);
                 // $rootScope.cancel();
             }
 
         })
-        .controller('CalculatorCtrl', function($scope, $rootScope, $route){
-            $rootScope.route = $route;
-            console.log($scope.name);
+        .controller('CalculatorCtrl', function($scope, $rootScope){
 
             $scope.submit = function() {
                 if($scope.wsForm.$valid) {
@@ -74,8 +70,7 @@
             }
 
         })
-        .controller('ParentCtrl', function($scope, $route, $rootScope){
-            $scope.name = "kyle";
+        .controller('ParentCtrl', function($scope, $rootScope){
 
             $rootScope.master = {
                 subtotal: 0,
