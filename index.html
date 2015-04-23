@@ -14,10 +14,10 @@
         <h1>Waitstaff Calculator</h1>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <ul class="nav nav-pills nav-justified">
-                    <li ng-class="{active: route.current.loadedTemplateUrl == 'templates/home.html'}"><a href="#/">Home</a></li>
-                    <li ng-class="{active: route.current.loadedTemplateUrl == 'templates/new-meal.html'}"><a href="#/new-meal">New Meal</a></li>
-                    <li ng-class="{active: route.current.loadedTemplateUrl== 'templates/my-earnings.html'}"><a href="#/my-earnings">My Earnings</a></li>
+                <ul class="nav nav-pills nav-justified" ng-controller="NavCtrl">
+                    <li ng-class="{active: isActive('/') }"><a href="#/">Home</a></li>
+                    <li ng-class="{active: isActive('/new-meal') }"><a href="#/new-meal">New Meal</a></li>
+                    <li ng-class="{active: isActive('/my-earnings') }"><a href="#/my-earnings">My Earnings</a></li>
                 </ul>
             </div>
         </div>

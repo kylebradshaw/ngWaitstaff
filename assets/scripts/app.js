@@ -90,6 +90,11 @@
 
             angular.copy($rootScope.master, $rootScope.datum);
 
+        })
+        .controller('NavCtrl', function($scope, $location){
+            $scope.isActive = function(path) {
+                return $location.path() == path;
+            };
         });
 
 }());
